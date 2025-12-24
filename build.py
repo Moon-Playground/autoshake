@@ -7,7 +7,6 @@ hidden_imports = [
     'dxcam_cpp',
     'cv2',
     'keyboard',
-    'PIL',
     'customtkinter',
     'tomlkit',
     'tomllib'

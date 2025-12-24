@@ -9,7 +9,6 @@ import threading
 import time
 import tomlkit
 import tomllib
-from PIL import Image
 
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")

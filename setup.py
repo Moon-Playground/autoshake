@@ -20,8 +20,7 @@ build_exe_options = {
         "tomllib",
         "dxcam_cpp",
         "cv2",
-        "customtkinter",
-        "PIL"
+        "customtkinter"
     ],
 }
 
