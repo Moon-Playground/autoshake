@@ -1,0 +1,30 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        target: [debug, release]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build ${{ matrix.target }}
+        run: |
+          if ("${{ matrix.target }}" -eq "release") {
+            cargo build --release
+          } else {
+            cargo build
+          }
+
+      - name: Upload ${{ matrix.target }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: auto_shake_rs_${{ matrix.target }}
+          path: |
+            ${{ github.workspace }}/target/${{ matrix.target }}/auto_shake_rs.exe
